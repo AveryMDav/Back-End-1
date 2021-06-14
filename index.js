@@ -4,16 +4,16 @@ const cors = require('cors');
 const app = express();
 
 app.use(express.json());
-
+app.use(cors());
 
 app.get('/api/users', function(req, res){
     const myArr = ['Cody', 'Thomas', 'Bree', 'Ryan', 'Chris', 'Lindsey'];
     res.status(200).send(myArr);
 });
 
-app.get('/weather/:temperature', function(req, res){
-    const {temperature} = reqs.params;
-    const phrase = `<h3>It was ${temperature} today.<h3>`;
+app.get('/weather/:temp', function(req, res){
+    const {temp} = req.params;
+    const phrase = `<h3>It was ${temp} today.<h3>`;
     res.status(200).send(phrase);
 });
 
